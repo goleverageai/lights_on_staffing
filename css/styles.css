@@ -386,7 +386,7 @@ p {
 
 .tab-content {
     background-color: var(--ireland-orange);
-    color: var(--ireland-white) !important;
+    color: var(--ireland-white);
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 5px 20px var(--shadow-light);
