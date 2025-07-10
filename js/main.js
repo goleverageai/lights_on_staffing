@@ -139,3 +139,23 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const tabs = document.querySelectorAll(".tabs .tab");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function() {
+            // Remove 'active' from all tabs and tab contents
+            tabs.forEach(t => t.classList.remove("active"));
+            tabContents.forEach(tc => tc.classList.remove("active"));
+
+            // Activate the clicked tab
+            this.classList.add("active");
+
+            // Show corresponding tab content
+            const target = this.getAttribute("data-tab");
+            document.getElementById(target).classList.add("active");
+        });
+    });
+});
