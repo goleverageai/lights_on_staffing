@@ -555,26 +555,20 @@ p {
 }
 
 .feature-item {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 80px 1fr; /* narrow fixed column for icon + flexible for content */
   gap: 30px;
   background: var(--ireland-white);
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 20px var(--shadow-light);
+  align-items: center;
 }
 
 .feature-icon {
-  font-size: 4.5rem;       /* Make icon bigger */
-  flex-shrink: 0;
+  font-size: 4.5rem;
   color: var(--ireland-orange);
-  width: 80px;             /* Fixed smaller column for icon */
   text-align: center;
-  line-height: 1;          /* vertically center icon if needed */
-}
-
-.feature-content {
-  flex: 1;                 /* Take remaining width */
 }
 
 .feature-content h3 {
@@ -584,19 +578,16 @@ p {
 
 .feature-content p {
   color: var(--text-light);
-  margin-bottom: 0;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
   .feature-item {
+    display: flex;
     flex-direction: column;
     text-align: center;
   }
   .feature-icon {
-    width: auto;
     margin-bottom: 15px;
-  }
-  .feature-content {
-    flex: none;
   }
 }
