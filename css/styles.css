@@ -386,7 +386,7 @@ p {
 
 .tab-content {
     background-color: var(--ireland-orange);
-    color: var(--ireland-white);
+    color: var(--ireland-white) !important;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 5px 20px var(--shadow-light);
@@ -395,6 +395,7 @@ p {
 
 .tab-content.active {
     display: block;
+    color: var(--ireland-white);
 }
 
 /* Cards Section */
