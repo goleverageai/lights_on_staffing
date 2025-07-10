@@ -179,6 +179,10 @@ p {
     margin-bottom: 20px;
 }
 
+footer p {
+  color: var(--white);
+}
+
 .footer-menu {
     list-style: none;
 }
