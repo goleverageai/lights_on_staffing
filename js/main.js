@@ -33,53 +33,90 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form Validation
-const heroForm = document.querySelector('.hero-form form');
-if (heroForm) {
-    heroForm.addEventListener('submit', function(e) {
-        
-        const fullName = document.querySelector('input[name="fullname"]');
-        const email = document.querySelector('input[name="email"]');
-        const phone = document.querySelector('input[name="phone"]');
-        
-        let isValid = true;
-        
-        // Reset previous error states
-        [fullName, email, phone].forEach(input => {
-            if (input) {
-                input.style.borderColor = '#e0e0e0';
+    // Form Validation for both forms
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Hero Form Validation
+    const heroForm = document.querySelector('.hero-form form');
+    if (heroForm) {
+        heroForm.addEventListener('submit', function(e) {
+            const fullName = heroForm.querySelector('input[name="fullname"]');
+            const email = heroForm.querySelector('input[name="email"]');
+            const phone = heroForm.querySelector('input[name="phone"]');
+            
+            let isValid = true;
+            
+            [fullName, email, phone].forEach(input => {
+                if (input) input.style.borderColor = '#e0e0e0';
+            });
+            
+            if (!fullName || fullName.value.trim() === '') {
+                if (fullName) fullName.style.borderColor = '#ff4444';
+                isValid = false;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email.value)) {
+                if (email) email.style.borderColor = '#ff4444';
+                isValid = false;
+            }
+            
+            if (!phone || phone.value.trim() === '') {
+                if (phone) phone.style.borderColor = '#ff4444';
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+                alert('Please fill in all fields correctly.');
+            } else {
+                alert('Thank you for your interest! We will contact you soon.');
+                // Let form submit normally to FormSubmit.co
             }
         });
-        
-        // Validate full name
-        if (!fullName || fullName.value.trim() === '') {
-            if (fullName) fullName.style.borderColor = '#ff4444';
-            isValid = false;
-        }
-        
-        // Validate email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email || !emailRegex.test(email.value)) {
-            if (email) email.style.borderColor = '#ff4444';
-            isValid = false;
-        }
-        
-        // Validate phone
-        if (!phone || phone.value.trim() === '') {
-            if (phone) phone.style.borderColor = '#ff4444';
-            isValid = false;
-        }
-        
-        if (!isValid) {
-            e.preventDefault();  // stop submission only if invalid
-            alert('Please fill in all fields correctly.');
-        } else {
-            alert('Thank you for your interest! We will contact you soon.');
-            // form submits normally (no preventDefault)
-            heroForm.reset();
-        }
-    });
-}
+    }
+    
+    // Contact Page Form Validation
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            const fullName = contactForm.querySelector('input[name="name"]');
+            const email = contactForm.querySelector('input[name="email"]');
+            const message = contactForm.querySelector('textarea[name="message"]');
+            
+            let isValid = true;
+            
+            [fullName, email, message].forEach(input => {
+                if (input) input.style.borderColor = '#e0e0e0';
+            });
+            
+            if (!fullName || fullName.value.trim() === '') {
+                if (fullName) fullName.style.borderColor = '#ff4444';
+                isValid = false;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email.value)) {
+                if (email) email.style.borderColor = '#ff4444';
+                isValid = false;
+            }
+            
+            if (!message || message.value.trim() === '') {
+                if (message) message.style.borderColor = '#ff4444';
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+                alert('Please fill in all required fields correctly.');
+            } else {
+                alert('Thank you for reaching out! We will get back to you soon.');
+                // Let form submit normally to FormSubmit.co
+            }
+        });
+    }
+});
+
 
     
     // Smooth Scrolling for Navigation Links
