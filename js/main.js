@@ -34,51 +34,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Form Validation
-    const heroForm = document.querySelector('.hero-form form');
-    if (heroForm) {
-        heroForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const fullName = document.querySelector('input[name="fullname"]');
-            const email = document.querySelector('input[name="email"]');
-            const phone = document.querySelector('input[name="phone"]');
-            
-            let isValid = true;
-            
-            // Reset previous error states
-            [fullName, email, phone].forEach(input => {
-                if (input) {
-                    input.style.borderColor = '#e0e0e0';
-                }
-            });
-            
-            // Validate full name
-            if (!fullName || fullName.value.trim() === '') {
-                if (fullName) fullName.style.borderColor = '#ff4444';
-                isValid = false;
-            }
-            
-            // Validate email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email || !emailRegex.test(email.value)) {
-                if (email) email.style.borderColor = '#ff4444';
-                isValid = false;
-            }
-            
-            // Validate phone
-            if (!phone || phone.value.trim() === '') {
-                if (phone) phone.style.borderColor = '#ff4444';
-                isValid = false;
-            }
-            
-            if (isValid) {
-                alert('Thank you for your interest! We will contact you soon.');
-                heroForm.reset();
-            } else {
-                alert('Please fill in all fields correctly.');
+const heroForm = document.querySelector('.hero-form form');
+if (heroForm) {
+    heroForm.addEventListener('submit', function(e) {
+        
+        const fullName = document.querySelector('input[name="fullname"]');
+        const email = document.querySelector('input[name="email"]');
+        const phone = document.querySelector('input[name="phone"]');
+        
+        let isValid = true;
+        
+        // Reset previous error states
+        [fullName, email, phone].forEach(input => {
+            if (input) {
+                input.style.borderColor = '#e0e0e0';
             }
         });
-    }
+        
+        // Validate full name
+        if (!fullName || fullName.value.trim() === '') {
+            if (fullName) fullName.style.borderColor = '#ff4444';
+            isValid = false;
+        }
+        
+        // Validate email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRegex.test(email.value)) {
+            if (email) email.style.borderColor = '#ff4444';
+            isValid = false;
+        }
+        
+        // Validate phone
+        if (!phone || phone.value.trim() === '') {
+            if (phone) phone.style.borderColor = '#ff4444';
+            isValid = false;
+        }
+        
+        if (!isValid) {
+            e.preventDefault();  // stop submission only if invalid
+            alert('Please fill in all fields correctly.');
+        } else {
+            alert('Thank you for your interest! We will contact you soon.');
+            // form submits normally (no preventDefault)
+            heroForm.reset();
+        }
+    });
+}
+
     
     // Smooth Scrolling for Navigation Links
     const navLinks = document.querySelectorAll('a[href^="#"]');
