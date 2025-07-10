@@ -550,30 +550,53 @@ p {
 .feature-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
+  margin-top: 40px;
 }
 
 .feature-item {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
-  background: rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  border-radius: 8px;
+  gap: 30px;
+  background: var(--ireland-white);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px var(--shadow-light);
 }
 
 .feature-icon {
-  font-size: 36px;
-  line-height: 1;
+  font-size: 4.5rem;       /* Make icon bigger */
   flex-shrink: 0;
+  color: var(--ireland-orange);
+  width: 80px;             /* Fixed smaller column for icon */
+  text-align: center;
+  line-height: 1;          /* vertically center icon if needed */
+}
+
+.feature-content {
+  flex: 1;                 /* Take remaining width */
 }
 
 .feature-content h3 {
-  margin: 0 0 10px;
-  color: #FF883E;
+  color: var(--text-dark);
+  margin-bottom: 10px;
 }
 
 .feature-content p {
-  margin: 0;
+  color: var(--text-light);
+  margin-bottom: 0;
 }
 
+@media (max-width: 768px) {
+  .feature-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  .feature-icon {
+    width: auto;
+    margin-bottom: 15px;
+  }
+  .feature-content {
+    flex: none;
+  }
+}
