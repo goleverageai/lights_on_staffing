@@ -84,52 +84,59 @@
                             <button type="submit" class="btn" style="width: 100%; font-size: 1.1rem;">Send Message</button>
                         </form>
                     
-        <!-- Contact Information -->
+        <!-- Contact Form and Info -->
+        <section class="section">
+            <div class="container">
+                <div class="two-column">
+                    <!-- Contact Form -->
                     <div class="content-column">
-                        <h2>Contact Information</h2>
+                        <h2>Get in Touch</h2>
+                        <p>Whether you're a job seeker looking for your next opportunity or an employer seeking top talent, we're here to help. Fill out the form below and we'll get back to you within 24 hours.</p>
                         
-                        <div class="contact-info" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin-top: 30px;">
-                            <div class="contact-item" style="margin-bottom: 30px; display: flex; align-items: flex-start; gap: 15px;">
-                                
-                                <div>
-                                    <h4>Email</h4>
-                                    <p style="color: #666; margin: 0;">stevenglynn@lightsonstaffing.com</p>
+                        <form action="https://formsubmit.co/rdogra@goleverage.ai" method="POST" class="contact-form" style="background: #f8f9fa; padding: 30px; border-radius: 10px; margin-top: 30px;">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name *</label>
+                                <input type="text" id="contact-name" name="name" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-email">Email Address *</label>
+                                    <input type="email" id="contact-email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-phone">Phone Number</label>
+                                    <input type="tel" id="contact-phone" name="phone">
                                 </div>
                             </div>
                             
-                            <div class="contact-item" style="margin-bottom: 30px; display: flex; align-items: flex-start; gap: 15px;">
-                                
-                                <div>
-                                    <h4>Phone</h4>
-                                    <p style="color: #666; margin: 0;">+1 (619) 861-1449</p>
-                                </div>
+                            <div class="form-group">
+                                <label for="contact-company">Company/Organization</label>
+                                <input type="text" id="contact-company" name="company">
                             </div>
                             
-                            
-                            <div class="contact-item" style="display: flex; align-items: flex-start; gap: 15px;">
-                                
-                                <div>
-                                    <h4>LinkedIn</h4>
-                                    <p style="color: #666; margin: 0;">
-                                        <a href="https://www.linkedin.com/in/stevenglynn/" target="_blank" style="color: #169B62; text-decoration: none;">Connect with Steven Glynn</a>
-                                    </p>
-                                </div>
+                            <div class="form-group">
+                                <label for="contact-type">I am a:</label>
+                                <select id="contact-type" name="type" style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 16px;">
+                                    <option value="">Please select...</option>
+                                    <option value="job-seeker">Job Seeker</option>
+                                    <option value="employer">Employer/Hiring Manager</option>
+                                    <option value="other">Other</option>
+                                </select>
                             </div>
-                        </div>
-
-
-
-                        
-                        <!-- Quick Response Promise -->
-                        <div style="background-color: #FF883E; color: white; padding: 25px; border-radius: 10px; margin-top: 30px; text-align: center;">
-                            <h4 style="color: white; margin-bottom: 15px;">Our Promise</h4>
-                            <p style="color: rgba(255,255,255,0.9); margin: 0;">We respond to all inquiries within 24 hours. For urgent staffing needs, call us directly for immediate assistance.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+                            
+                            <div class="form-group">
+                                <label for="contact-subject">Subject</label>
+                                <input type="text" id="contact-subject" name="subject" placeholder="Brief description of your inquiry">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-message">Message *</label>
+                                <textarea id="contact-message" name="message" rows="6" style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 16px; resize: vertical;" placeholder="Please provide details about your staffing needs or career goals..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn" style="width: 100%; font-size: 1.1rem;">Send Message</button>
+                        </form>
         
 
         <!-- Office Hours and Availability -->
